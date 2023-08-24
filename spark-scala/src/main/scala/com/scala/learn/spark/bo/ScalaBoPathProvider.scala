@@ -28,6 +28,14 @@ object ScalaBoPathProvider {
       val GENOME_TAG = "D:\\Workspace\\codebase\\spark-poc\\data\\output\\movielens\\csv\\genome-tags"
       val GENOME_SCORE = "D:\\Workspace\\codebase\\spark-poc\\data\\output\\movielens\\csv\\genome-scores"
     }
+    object HIVE {
+      val MOVIES = "movies"
+      val LINKS = "links"
+      val RATINGS = "ratings"
+      val TAG = "tags"
+      val GENOME_TAG = "genome_tags"
+      val GENOME_SCORE = "genome_scores"
+    }
   }
 
 }
