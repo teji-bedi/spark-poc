@@ -3,8 +3,8 @@ package com.learn.spark.base;
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
 
-public class SparkSessionProvider {
-    private SparkSessionProvider() {
+public class JavaSparkSessionProvider {
+    private JavaSparkSessionProvider() {
     }
 
     public static final SparkSession spark = SparkSession.builder().config(buildConfig()).getOrCreate();

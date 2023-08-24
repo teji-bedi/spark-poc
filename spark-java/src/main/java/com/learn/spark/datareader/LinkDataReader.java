@@ -6,11 +6,12 @@ import com.learn.spark.datareader.base.ParquetDataReader;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Encoders;
 
-public class LinkDataReader  implements CsvDataReader<LinkBo>, ParquetDataReader<LinkBo> {
+public class LinkDataReader implements CsvDataReader<LinkBo>, ParquetDataReader<LinkBo> {
 
-    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\spark-poc\\data\\input\\movielens\\links.csv";
+    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\links.csv";
+
     @Override
     public Dataset<LinkBo> getData() {
-        return  getCsvData(path, Encoders.bean(LinkBo.class));
+        return getCsvData(path, Encoders.bean(LinkBo.class));
     }
 }

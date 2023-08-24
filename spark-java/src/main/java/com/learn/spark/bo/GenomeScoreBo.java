@@ -1,14 +1,18 @@
 package com.learn.spark.bo;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class GenomeScoreBo {
     private Integer movieId;
     private Integer tagId;
-    private BigDecimal relevance;
+    private Double relevance;
 }
