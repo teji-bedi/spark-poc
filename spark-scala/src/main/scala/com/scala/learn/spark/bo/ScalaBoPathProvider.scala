@@ -8,6 +8,7 @@ object ScalaBoPathProvider {
     val TAG  = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\tags.csv"
     val GENOME_TAG  = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\genome-tags.csv"
     val GENOME_SCORE  = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\genome-scores.csv"
+    val DEMO_DATA  = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\demo-data.csv"
   }
 
   object OUTPUT_PATH {

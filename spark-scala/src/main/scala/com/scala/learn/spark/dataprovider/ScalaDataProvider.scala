@@ -2,7 +2,7 @@ package com.scala.learn.spark.dataprovider
 
 import com.scala.learn.spark.bo._
 import com.scala.learn.spark.datareader._
-import org.apache.spark.sql.Dataset
+import org.apache.spark.sql.{DataFrame, Dataset, Row}
 
 class ScalaDataProvider {
 
@@ -17,4 +17,6 @@ class ScalaDataProvider {
   def getGenomeTags: Dataset[ScalaGenomeTagBo] = new ScalaGenomeTagDataReader().inputData
 
   def getGenomeScores: Dataset[ScalaGenomeScoreBo] = new ScalaGenomeScoreDataReader().inputData
+
+  def getDemoData: DataFrame = new DemoDataReader().inputData
 }
