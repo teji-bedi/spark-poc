@@ -19,12 +19,12 @@ class ScalaCalculatorTest extends AnyFlatSpec with MockitoSugar {
 //    val scalaDataProvider = mock[ScalaDataProvider]
 //    val scalaDataWriter = mock[ScalaDataWriter]
 //    val dataFrameReader = spark.read.option("header", "true").option("inferSchema", "true").option("delimiter", ",")
-//    val moviesDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\movies.csv").as[ScalaMovieBo]
-//    val linksDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\links.csv").as[ScalaLinkBo]
-//    val ratingsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\ratings.csv").as[ScalaRatingBo]
-//    val tagsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\tags.csv").as[ScalaTagBo]
-//    val genomeTagsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\genome-tags.csv").as[ScalaGenomeTagBo]
-//    val genomeScoresDf = dataFrameReader.csv("D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\genome-scores.csv").as[ScalaGenomeScoreBo]
+//    val moviesDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\movies.csv").as[ScalaMovieBo]
+//    val linksDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\links.csv").as[ScalaLinkBo]
+//    val ratingsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\ratings.csv").as[ScalaRatingBo]
+//    val tagsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\tags.csv").as[ScalaTagBo]
+//    val genomeTagsDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\genome-tags.csv").as[ScalaGenomeTagBo]
+//    val genomeScoresDf = dataFrameReader.csv("D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\genome-scores.csv").as[ScalaGenomeScoreBo]
 //
 //
 //    when(scalaDataProvider.getMovies).thenReturn(moviesDf)

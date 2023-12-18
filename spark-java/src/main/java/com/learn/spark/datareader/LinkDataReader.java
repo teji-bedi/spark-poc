@@ -8,7 +8,7 @@ import org.apache.spark.sql.Encoders;
 
 public class LinkDataReader implements CsvDataReader<LinkBo>, ParquetDataReader<LinkBo> {
 
-    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\links.csv";
+    private static final String path = "D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\links.csv";
 
     @Override
     public Dataset<LinkBo> getData() {

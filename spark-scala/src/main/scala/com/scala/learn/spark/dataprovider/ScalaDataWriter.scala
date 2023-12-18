@@ -1,22 +1,22 @@
 package com.scala.learn.spark.dataprovider
 
-import com.scala.learn.spark.bo.ScalaBoPathProvider.OUTPUT_PATH.{CSV, HIVE, PARQUET}
+import com.scala.learn.spark.bo.ScalaBoPathProvider.OUTPUT_PATH.MOVIE_LENS.{CSV, HIVE, PARQUET}
 import com.scala.learn.spark.datawriter.base.{CsvDataFrameWriter, HiveTableDataFrameWriter, ParquetDataFrameWriter}
 import org.apache.spark.sql.{DataFrame, SaveMode}
 
 
-class ScalaDataWriter(val data: DataFrame, val dataOf: String, saveMode: SaveMode = SaveMode.Overwrite) {
+class ScalaDataWriter(val data: DataFrame, val dataOf: String, saveMode: SaveMode = SaveMode.Overwrite, partitionedColumn: List[String] = List.empty) {
 
   def write(format: String = "PARQUET"): Unit = {
     format.toLowerCase match {
-      case "parquet" => writeParquet()
-      case "csv" => writeCsv()
-      case "hive" => writeHive()
+      case "parquet" => writeParquet(partitionedColumn)
+      case "csv" => writeCsv(partitionedColumn)
+      case "hive" => writeHive(partitionedColumn)
       case _ => throw new IllegalArgumentException("Illegal format provided")
     }
   }
 
-  def writeParquet(): Unit = {
+  def writeParquet(partitionedColumn: List[String]): Unit = {
     val path = dataOf.toLowerCase match {
       case "movies" => PARQUET.MOVIES
       case "links" => PARQUET.LINKS
@@ -26,10 +26,10 @@ class ScalaDataWriter(val data: DataFrame, val dataOf: String, saveMode: SaveMod
       case "genome-scores" => PARQUET.GENOME_SCORE
       case _ => throw new IllegalArgumentException("Illegal bo provided")
     }
-    ParquetWriter.writeData(path)
+    ParquetWriter.writeData(path, partitionedColumn)
   }
 
-  def writeCsv(): Unit = {
+  def writeCsv(partitionedColumn: List[String]): Unit = {
     val path = dataOf.toLowerCase match {
       case "movies" => CSV.MOVIES
       case "links" => CSV.LINKS
@@ -39,10 +39,10 @@ class ScalaDataWriter(val data: DataFrame, val dataOf: String, saveMode: SaveMod
       case "genome-scores" => CSV.GENOME_SCORE
       case _ => throw new IllegalArgumentException("Illegal bo provided")
     }
-    CsvWriter.writeData(path)
+    CsvWriter.writeData(path, partitionedColumn)
   }
 
-  def writeHive(): Unit = {
+  def writeHive(partitionedColumn: List[String]): Unit = {
     val path = dataOf.toLowerCase match {
       case "movies" => HIVE.MOVIES
       case "links" => HIVE.LINKS
@@ -52,16 +52,18 @@ class ScalaDataWriter(val data: DataFrame, val dataOf: String, saveMode: SaveMod
       case "genome-scores" => HIVE.GENOME_SCORE
       case _ => throw new IllegalArgumentException("Illegal bo provided")
     }
-    CsvWriter.writeData(path)
+    CsvWriter.writeData(path, partitionedColumn)
   }
 
   private object ParquetWriter {
-    def writeData(path: String): Unit = ParquetDataFrameWriter.writeData(data.toDF(), path, saveMode)
+    def writeData(path: String, partitionedColumns: List[String]): Unit = ParquetDataFrameWriter.writeData(data.toDF(), path, saveMode, partitionedColumns)
   }
+
   private object CsvWriter {
-    def writeData(path: String): Unit = CsvDataFrameWriter.writeData(data.toDF(), path, saveMode)
+    def writeData(path: String, partitionedColumns: List[String]): Unit = CsvDataFrameWriter.writeData(data.toDF(), path, saveMode, partitionedColumns)
   }
+
   private object HiveTableWriter {
-    def writeData(path: String): Unit = HiveTableDataFrameWriter.writeData(data.toDF(), path, saveMode)
+    def writeData(path: String, partitionedColumns: List[String]): Unit = HiveTableDataFrameWriter.writeData(data.toDF(), path, saveMode, partitionedColumns)
   }
 }

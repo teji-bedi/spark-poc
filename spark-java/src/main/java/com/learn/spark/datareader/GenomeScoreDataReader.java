@@ -8,7 +8,7 @@ import org.apache.spark.sql.Encoders;
 
 public class GenomeScoreDataReader implements CsvDataReader<GenomeScoreBo>, ParquetDataReader<GenomeScoreBo> {
 
-    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\genome-scores.csv";
+    private static final String path = "D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\genome-scores.csv";
 
     @Override
     public Dataset<GenomeScoreBo> getData() {

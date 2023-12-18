@@ -18,5 +18,6 @@ class ScalaDataProvider {
 
   def getGenomeScores: Dataset[ScalaGenomeScoreBo] = new ScalaGenomeScoreDataReader().inputData
 
-  def getDemoData: DataFrame = new DemoDataReader().inputData
+  def getDemoData: DataFrame = new DemoCsvDataReader().inputData
+  def getFlightData: DataFrame = new DemoParquetDataReader().inputData
 }

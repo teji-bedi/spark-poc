@@ -8,7 +8,7 @@ import org.apache.spark.sql.Encoders;
 
 public class TagDataReader implements CsvDataReader<TagBo>, ParquetDataReader<TagBo> {
 
-    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\tags.csv";
+    private static final String path = "D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\tags.csv";
 
     @Override
     public Dataset<TagBo> getData() {

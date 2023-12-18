@@ -8,7 +8,7 @@ import org.apache.spark.sql.Encoders;
 
 public class MoviesDataReader implements CsvDataReader<MovieBo>, ParquetDataReader<MovieBo> {
 
-    private static final String path = "D:\\Workspace\\codebase\\spark-poc\\data\\input\\movielens\\movies.csv";
+    private static final String path = "D:\\Workspace\\codebase\\github\\spark-poc\\data\\input\\movielens\\movies.csv";
 
     @Override
     public Dataset<MovieBo> getData() {
